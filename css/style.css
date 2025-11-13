@@ -9,7 +9,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	background-image: url(../img/beijing.png);
+	background-image: url(../img/beijing.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -46,6 +46,7 @@ body{
 
 .daohang li {
 	margin: 0 2px;	
+	position: relative;
 }
 
 .daohang a {
@@ -64,17 +65,64 @@ body{
 	transform: translateY(-2px);
 }
 
-.daohang li:not(:last-child) a::after {
-	content: "|";
+.daohang .daohang-two{
+	display: none;
 	position: absolute;
-	right: -2px;
-	color: rosybrown;
+	top: 100%;
+	left: 0;
+	min-width: 100px;
+	background-color: #7e0f13;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	z-index: 10;
+	padding: 0;
+	flex-direction: column;	
+}
+
+.daohang-has:hover .daohang-two{
+	display: flex;
+}
+
+.daohang-two li{
+	margin: 0;
+	display: block;
+}
+
+.daohang-two li a {
+  display: block; 
+  padding: 12px 24px; 
+  color: aliceblue; 
+  text-decoration: none;
+  transition: all 0.3s; 
+}
+
+.daohang-two li a:hover {
+  background-color: goldenrod; 
+  color: red; 
+  transform: translateY(-2px); 
+}
+
+a.active{
+	background-color:gold;
+	color: brown;
+	transform: translateY(-1.8px);
+}
+
+a.actives{
+	background-color: darkgoldenrod;
+	transform: translateY(-1.5px);
+}
+
+.daohang > ul > li:not(:last-child) > a::after {
+  content: "|";
+  position: absolute;
+  right: -2px;
+  color: rosybrown;
 }
 
 .lunbotu{
-	width: 1100px;
-	height:400px;
-	margin:15px auto;
+	width: 1200px;
+	height:500px;
+	margin:25px auto;
 	overflow: hidden;
 	position: relative;
 	border-radius: 8px;
@@ -83,7 +131,7 @@ body{
 
 .lunbotu-wrapper{
 	display: flex;
-	height: 100%;
+	height: 85%;
 	transition: transparent 0.3s ease-in-out;
 }
 
@@ -95,7 +143,7 @@ body{
 
 .lunbotu-item img{
 	width: 100%;
-	height:125%;
+	height:155%;
 	object-fit: cover;
 }
 
@@ -139,7 +187,7 @@ body{
 	max-width: 80%;
 	height:auto;
 	object-fit: contain;
-	border-radius: 12px;
+	border-radius: 8px;
 	margin: 0 auto;
 }
 
@@ -164,7 +212,7 @@ p{
 }
 
 .main_right{
-	margin:40px auto;
+	margin:20px auto;
 	overflow: hidden;
 	width: 850px;
 	height:auto;
@@ -244,7 +292,7 @@ p{
 }
 
 .c_jieri{
-	background-image: url(../img/wordbeijing.png);
+	background-image: url(../img/wordbeijing.jpg);
 	background-size: cover;
 	background-position: center;
 	text-align: center;
@@ -318,7 +366,7 @@ p{
 
 .jieri_left{
 	margin:50px auto;
-	max-width: 1000px;
+	max-width:750px;
 	text-align: center;
 	position: relative;
 	overflow: hidden;
@@ -365,7 +413,7 @@ p{
 
 .jieri_right{
 	margin:0 auto;
-	padding: 20px;
+	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -377,6 +425,13 @@ p{
 	width: calc(33.33% - 14px);
 	text-align: center;
 	text-decoration: none;
+}
+
+.jieri_right a span{
+	background-color: #cdcda3;
+	color: red;
+	padding: 0.5px 2px;
+	border-radius: 5px;
 }
 
 .jieri_right img{
@@ -404,9 +459,225 @@ p{
 
 .j_foot{
 	text-align: center;
-	color:darkgreen ;
+	color:#561b00;
 	background-color: #66CDAA;
 	padding: 5px 0;
-	border-bottom-left-radius: 18px;
-	border-bottom-right-radius: 18px;
+	height: auto;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.yisu{
+	margin:25px auto;
+	width: 950px;
+	height: auto;
+	text-align: center;
+	border: 1px solid rosybrown;
+	box-shadow: 3px 3px 1px 1px rgba(0,0,0,0.3);
+	border-radius: 15px;
+	line-height: 15px;
+	 background: rgba(216, 204, 142, 0.8);
+}
+
+.coll-cont{
+	width:90%;
+	max-width: 100%;
+	border: 2px solid #8b5f21;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 0px auto;
+}
+
+.coll-img{
+	width:100%;
+	height: 500px;
+	margin: 0px auto;
+	object-fit: cover;
+	cursor: pointer;
+	transition:transform 0.3s ;
+	border: 0px solid blue;
+	display: block;
+}
+
+.coll-img:active{
+	transform: scale(0.9);
+}
+
+.coll-text{
+	padding: 5px;
+	background: #F5DEB3;
+	max-height:0;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 1;
+	transition: max-height 2s ease;
+}
+
+.coll-text.hover-show{
+	display: block;
+	visibility: visible;
+	max-height: 50px;
+	overflow: hidden;
+	transition-duration: 0.5s;
+}
+
+.coll-text.show{
+	max-height:2000px;
+	display: block;
+	visibility: visible;
+	overflow: visible;
+}
+
+.jiyi-cont{
+	position: relative;
+	overflow: visible;
+	background-color: #66CDAA;
+	padding-bottom: 20px;
+}
+
+.jiyi-cont img{
+	max-width: 70%;
+	height: auto;
+}
+.jiyi{
+	width: 100%;
+	position: static;
+	top: 0;
+	left: 0;
+	display: none;
+	padding: 20px 0;
+	transition: opacity 0.5s ease;
+	opacity: 0;
+}
+
+.jiyi.active{
+	display: block;
+	opacity: 1;
+}
+
+.pagination{
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+	border-radius: 5px;
+}
+
+.page-btn{
+	padding: 8px 20px;
+	background: #561B00;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.page-btn:disabled{
+	background:#999;
+	cursor: not-allowed;
+}
+
+/* 索引容器：使用Flex布局让子元素水平排列 */
+.chapter-index-jiyi {
+  display: flex; /* 横向排列子元素 */
+  justify-content: center;
+  padding: 20px auto; /* 上下内边距，增加整体高度 */
+  border-bottom: 1px solid #eee; /* 底部边框，区分导航与内容 */
+  margin-bottom: 20px; /* 与下方内容的间距 */
+  overflow-x: auto; /* 当索引项过多时，允许横向滚动 */
+}
+
+/* 索引项基础样式 */
+.index-item-new {
+  padding: 8px 16px; /* 内边距，增加点击区域 */
+  cursor: pointer; /* 鼠标悬停显示手型，提示可点击 */
+  white-space: nowrap; /* 文字不换行，避免索引项换行 */
+  transition: all 0.3s ease; /* 过渡动画，切换状态更平滑 */
+  font-size: 14px; /* 文字大小（可根据需求调整） */
+  color: #333; /* 默认文字颜色 */
+  font-size: 18px;
+  background-color: #6fdfb8;
+}
+
+/* 选中的索引项高亮样式 */
+.index-item-new.active {
+  background-color: #2c3e50; /* 高亮背景色（可替换为品牌色） */
+  color: white; /* 高亮文字色 */	
+  font-weight: bold; /* 文字加粗，增强突出效果 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 轻微阴影，增加层次感 */
+}
+
+/* 鼠标悬停未选中项的样式（可选，增强交互体验） */
+.index-item-new:not(.active):hover {
+  background-color: #adadad; /* 悬停时浅灰色背景 */
+  color: #aa0000; /* 悬停时文字变色 */
+}
+
+.wenxue {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.title-img-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-img-group h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.title-img-group img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.wenxue-text {
+  flex-shrink: 1;
+  max-width: 50%;
+  font-size: 15px;
+  background-color: #6edeb7;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  padding: 20px;
+  position: relative;
+}
+
+/* 删除所有额外字体文本样式，仅保留默认渲染 */
+.wenxue-text .hidden-content p {
+  margin: 10px 0; /* 仅保留基础间距，避免拥挤 */
+}
+
+.hidden-content {
+  display: none;
+}
+
+.hidden-content.expanded {
+  display: block;
+}
+
+.expand-all-btn {
+  margin: 20px auto;
+  display: block;
+  padding: 8px 20px;
+  border: none;
+  background: #0066cc;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.expand-all-btn:hover {
+  background: #004999;
+}
+
+.expand-all-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
